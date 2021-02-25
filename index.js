@@ -1,8 +1,12 @@
+const { json } = require('body-parser');
 const express = require('express');
 const app = express();
+const consing = require('consign');
 
-app.set('port', process.env.PORT || 3000);
 
-app.listen(app.get('port'), () => {
-    console.log(`server on port ${app.get('port')}`)
-});
+consing()                           // This allows me to import the settings I made asynchronously
+    .include('libs/middlewares.js')
+    .then('routes')
+    .include('libs/boots.js')
+    .into(app)
+    
