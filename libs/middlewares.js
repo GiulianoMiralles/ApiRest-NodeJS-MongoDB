@@ -1,9 +1,9 @@
 const bodyParser = require('body-parser');
 
-module.exports = app =>{
+module.exports = app => {
     app.set('port', process.env.PORT || 3000);
 
-    app.use(bodyParser.json());                         //voy a poder entender los datos que me mandan via psot
-    app.use(bodyParser.urlencoded({extended: false}));   //Me permite entender los datos que me mandan via rul
+    app.use(bodyParser.json());                         // It allows me to understand the data they send me via POST
+    app.use(bodyParser.urlencoded({ extended: false }));   // It allows me to understand the data sent to me via URL
 
 };
