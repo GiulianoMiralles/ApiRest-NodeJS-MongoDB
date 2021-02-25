@@ -38,4 +38,16 @@ module.exports = app => {
             }
         )
     })
+
+    app.delete('/movies/:id', (req, res) =>{
+        db.movies.remove(
+            {_id: mongojs.ObjectID(req.params.id)},
+            (err,response) => {
+                res.json({
+                    response
+                });
+            }
+        );
+    });
+
 };
